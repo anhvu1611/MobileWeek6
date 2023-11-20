@@ -35,9 +35,10 @@ export default function App({navigation}) {
                         style={{width:30, height:30}}
                     />
                 </Pressable>
+                
             </View>
             
-            <Pressable>
+            <Pressable onPress={()=>{navigation.navigate('manHinh3')}}>
                 <View style={{marginTop:30}}>
                     <FlatList
                         data={data}
