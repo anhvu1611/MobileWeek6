@@ -2,8 +2,18 @@ import { StyleSheet, Text, View,Image, Pressable, FlatList } from 'react-native'
 import React, {useState, useEffect} from 'react';
 
 export default function App({navigation}) {
-  //var [data, setData] = React.useState([]);
-  var [soLuong, useSoLuong] = React.useState(0);
+
+//   fetch('https://6540bd5245bedb25bfc27ba1.mockapi.io/api/lab7/shopCoffee')
+//         .then((response) => response.json())
+//         .then((json) => setData(json))
+//         .catch((error) => console.error(error))
+  // useEffect(() => {
+  //       fetch('https://6540bd5245bedb25bfc27ba1.mockapi.io/api/lab7/shopCoffee')
+  //       .then((response) => response.json())
+  //       .then((json) => setData(json))
+  //       .catch((error) => console.error(error))
+  // }, []);
+  var [soLuong, useSoLuong] = React.useState(1);
   const handleIncre = () => {
     useSoLuong(soLuong+1);
   }
@@ -20,54 +30,17 @@ export default function App({navigation}) {
         "name": "Origin",
         "price": 68,
         "image": "https://res.cloudinary.com/tranquanghuyit09/image/upload/v1698742913/reactnative-week7-cafeworld/eo8yqsiu1q2qzyx6mxpi.png"
-    },
-    {
-        "name": "Culi",
-        "price": 1,
-        "image": "https://res.cloudinary.com/tranquanghuyit09/image/upload/v1698742914/reactnative-week7-cafeworld/zjjofzsc9ladhxqibodb.png"
-    },
-    {
-        "name": "Espresso",
-        "price": 9,
-        "image": "https://res.cloudinary.com/tranquanghuyit09/image/upload/v1698742914/reactnative-week7-cafeworld/v6abdhs7mbnaugrwijfb.png"
-    },
-    {
-        "name": "Capuchino",
-        "price": 23,
-        "image": "https://res.cloudinary.com/tranquanghuyit09/image/upload/v1698742913/reactnative-week7-cafeworld/eo8yqsiu1q2qzyx6mxpi.png"
-    },
-    {
-        "name": "Weasel",
-        "price": 20,
-        "image": "https://res.cloudinary.com/tranquanghuyit09/image/upload/v1698742914/reactnative-week7-cafeworld/v6abdhs7mbnaugrwijfb.png"
-    },
-    {
-        "name": "Culi",
-        "price": 1,
-        "image": "https://res.cloudinary.com/tranquanghuyit09/image/upload/v1698742914/reactnative-week7-cafeworld/zjjofzsc9ladhxqibodb.png"
-    },
-    {
-        "name": "Catimor",
-        "price": 9,
-        "image": "https://res.cloudinary.com/tranquanghuyit09/image/upload/v1698742913/reactnative-week7-cafeworld/ssn37c6opzuxow9o2gek.png"
     }]);
-  // useEffect(() => {
-  //       fetch('https://6540bd5245bedb25bfc27ba1.mockapi.io/api/lab7/shopCoffee')
-  //       .then((response) => response.json())
-  //       .then((json) => setData(json))
-  //       .catch((error) => console.error(error))
-  // }, []);
-  
   return (
     <View style={styles.container}>
         <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between', marginBottom:20}}>
           <View style={{flexDirection:'row',alignItems:'center',}}>
-            <Pressable onPress={()=>{navigation.navigate('manHinh2')}} >
+            <Pressable onPress={()=>{navigation.navigate('manHinh3')}} >
               <Image source={require('../assets/back.png')} 
                             style={{width:30, height:30}}
               />
             </Pressable>
-            <Text style={{fontSize:30, fontWeight:700, marginLeft:20}}>Drinks</Text>
+            <Text style={{fontSize:30, fontWeight:700, marginLeft:20}}>Your order</Text>
           </View>
           <Pressable>
             <Image source={require('../assets/search.png')} 
@@ -75,6 +48,22 @@ export default function App({navigation}) {
             />
           </Pressable>
         </View>
+
+        <View style={{height:100,flexDirection:'row', justifyContent: 'space-between', alignItems:'center', borderWidth:1, padding:10, backgroundColor:'#00BDD6', borderColor:'#00BDD6', borderRadius:10}}>
+            <View>
+                <Text style={{fontSize: 20, fontWeight:700, color:'#ffff'}}>CAFE DELIVERY</Text>
+                <Text style={{fontSize: 18, fontWeight:700, color:'#ffff'}}>Order #18</Text>
+            </View>
+            <Text style={{fontSize: 20, fontWeight:700, color:'#ffff'}}>$20</Text>
+        </View>
+        <View style={{height:100,flexDirection:'row', justifyContent: 'space-between', alignItems:'center', borderWidth:1, padding:10, marginTop:20,backgroundColor:'#8353E2', borderColor:'#8353E2', borderRadius:10}}>
+            <View>
+                <Text style={{fontSize: 20, fontWeight:700, color:'#ffff'}}>CAFE</Text>
+                <Text style={{fontSize: 18, fontWeight:700, color:'#ffff'}}>Order #18</Text>
+            </View>
+            <Text style={{fontSize: 20, fontWeight:700, color:'#ffff'}}>$68</Text>
+        </View>
+
 
         <View>
           <FlatList
@@ -109,14 +98,11 @@ export default function App({navigation}) {
               </View>
             )}  
           />
-
-          <View style={{justifyContent:'center', alignItems: 'center', marginTop:30}}>
-            <Pressable
-              onPress={()=>{navigation.navigate('manHinh4')}}
-            style={{backgroundColor:'#EFB034', height:44, width:'100%',justifyContent:'center', alignItems: 'center'}}>
-                <Text style={{color:'#ffff'}}>GO TO CART</Text>
+        </View>
+        <View style={{justifyContent: 'center', alignItems:'center', marginTop:50}}>
+            <Pressable style={{backgroundColor:'#EFB034', width:'100%', height:44, justifyContent: 'center', alignItems:'center', borderRadiu:10}}>
+                <Text style={{fontSize: 16, color:'#fff'}}>PAY NOW</Text>
             </Pressable>
-          </View>
         </View>
     </View>
   );
@@ -126,6 +112,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    padding:18,
+    padding:10
   },
 });

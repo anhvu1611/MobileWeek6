@@ -23,7 +23,7 @@ export default function App({navigation}) {
         <SafeAreaView >
             <View style={{flexDirection:'row', justifyContent: 'space-around',position: 'fixed',width: "100%", height: 40,zIndex: 1, backgroundColor: 'rgba(243, 244, 246, 1)',marginTop:-10}}>
                 <Pressable
-                    onPress={()=>{navigation.goBack()}}
+                    onPress={()=>{navigation.navigate('manHinh1')}}
                 >
                     <Image source={require('../assets/back.png')} 
                         style={{width:30, height:30}}
@@ -38,7 +38,7 @@ export default function App({navigation}) {
                 
             </View>
             
-            <Pressable onPress={()=>{navigation.navigate('manHinh3')}}>
+            <Pressable onPress={() => navigation.navigate('manHinh3')}>
                 <View style={{marginTop:30}}>
                     <FlatList
                         data={data}
